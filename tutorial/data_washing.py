@@ -1,17 +1,17 @@
-# -*- coding:utf-8 -*-
-# 列表过滤和使用lambda函数过滤
+
 import re
-re_url = re.compile('^\/maszbw/infodetail/\?.*')
 
-if __name__ == "__main__":
-    info = """>>>>>用来演示普通方式过滤列表和使用lambda函数过滤<<<<<"""
 
-def filterForLi(li):
-    info = ">>>>>使用普通过滤列表<<<<<"
-    out_data = [element for element in li if re_url.match(element)!= None] #int类型没有长度，所以需要首先排除
-# 使用lambda函数过滤
-def filterByLambda(li):
-    info = ">>>>>使用lambda函数进行列表信息过滤<<<<<"
-    # 定义一个lambda函数:int类型没有长度，所以需要首先排除
-    g = lambda x : not isinstance(x,int) and len(x)>5
-    out_data = [element for element in li if g(element)]
+re_prourl = re.compile(r'.*\/maszbw/infodetail/\?.*')#match project detail url
+re_pronum = re.compile(r'\w{3}\-\d{2}\-\d{4}\-\d{4}')#match project number
+re_proretime = re.compile(r'\d{4}\-\d{2}\-\d{2}')#match project release time
+
+def prourl_filter(li_0):
+    url_list = [element for element in li_0 if re_prourl.match(element)!= None]
+    return url_list
+def pronumber_filter(li_1):
+    pronumber_list = [re_pronum.findall(elem) for elem in li_1]
+    return pronumber_list
+def proretime_filter(li_2):
+    proretime_list = [re_proretime.findall(elem) for elem in li_2]
+    return proretime_list
