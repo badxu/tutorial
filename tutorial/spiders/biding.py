@@ -16,9 +16,9 @@ class Myspider(scrapy.Spider):
 
 
     def parse(self, response):
-        url_list = [] #define detail url set(集合)
-        pronumber_list = [] #define pronumber set
-        proreleasetime_list = []# define release time set
+        url_list = [] #define detail url list
+        pronumber_list = [] #define pronumber list
+        proreleasetime_list = []# define release time list
 
         driver.get(response.url)
 
@@ -59,8 +59,23 @@ class Myspider(scrapy.Spider):
             'pro_releasetime': proreleasetime_list[p]})
 
     def parse_detail(self,response):
+        table_tr = response.xpath('//table[@id="tblInfo"]//table/tbody//tr')
+        #is data table type??
+        if len(table_tr) > 0 :
+            tr_name_list = []
+            for i in range(len(table_tr)):
+                try:
+                    tr_name = [''.join(response.xpath('//table[@id="tblInfo"]//table//tr["%d"]//td[1]//span/text()'%i))]
+                    tr_name_list += tr_name
+                except:
+                    print("get data error!")
+                    break
+        else:
+            pass
+
         yield {
             'pro_number': response.meta['pro_number'],
             'pro_releasetime': response.meta['pro_releasetime'],
-            'pro_area': response.xpath('//table[@id="tblInfo"]//span[contains(text(),"建设地点")]/ancestor::tr[1]//span/text()').extract()[1:]
+            # 'pro_area': response.xpath('//table[@id="tblInfo"]//span[contains(text(),"建设地点")]/ancestor::tr[1]//span/text()').extract()[1:]
+            'tr_name_list': tr_name_list
         }
