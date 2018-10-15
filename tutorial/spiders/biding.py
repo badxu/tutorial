@@ -59,23 +59,53 @@ class Myspider(scrapy.Spider):
             'pro_releasetime': proreleasetime_list[p]})
 
     def parse_detail(self,response):
-        table_tr = response.xpath('//table[@id="tblInfo"]//table/tbody//tr')
-        #is data table type??
-        if len(table_tr) > 0 :
+        '''
+        判断是否是表格型数据
+        '''
+        is_table = response.xpath('//table[@id="tblInfo"]//table/tbody/tr').extract()
+        if len(is_table) > 0:
+            '''
+            get tr generate a list
+            '''
             tr_name_list = []
-            for i in range(len(table_tr)):
-                try:
-                    tr_name = [''.join(response.xpath('//table[@id="tblInfo"]//table//tr["%d"]//td[1]//span/text()'%i))]
-                    tr_name_list += tr_name
-                except:
-                    print("get data error!")
-                    break
+            for i in range(len(is_table)):
+                i+=1
+                table_tr = response.xpath(
+                    '//table[@id="tblInfo"]//table/tbody/tr[%s]//td[1]//span/text()' % str(i)).extract()
+                tr_name_list += [''.join(table_tr)]
+
+            #get pro_area
+            sel_area_keys = ['建设地点', '供货地点', '供货安装地点'] #define area search keys
+            sel_period_keys = ['工期','检测服务期','设计服务期','计划工期','监理服务期'] #define period search keys
+
+            def sel_listname(l):
+                for sel in l:
+                    try:
+                        tr_name_list.index(sel)
+                    except:
+                        return_value = "has no this item"
+                    else:
+                        subscript_pro_area = tr_name_list.index(sel) + 1
+                        return_value = response.xpath(
+                            '//table[@id="tblInfo"]//table/tbody/tr[%s]//td[2]//span/text()' % str(
+                                subscript_pro_area)).extract()
+                        break
+                return return_value
+
+            pro_area_value = [''.join(sel_listname(sel_area_keys))]
+            pro_period_value = [''.join(sel_listname(sel_period_keys))]
+
         else:
-            pass
+            pro_area_value = "this data is not table data!!"
+            pro_period_value = "this data is not table data!!"
+
+
+
 
         yield {
             'pro_number': response.meta['pro_number'],
             'pro_releasetime': response.meta['pro_releasetime'],
-            # 'pro_area': response.xpath('//table[@id="tblInfo"]//span[contains(text(),"建设地点")]/ancestor::tr[1]//span/text()').extract()[1:]
-            'tr_name_list': tr_name_list
+            'pro_area': pro_area_value,
+            'pro_period': pro_period_value
+
         }
