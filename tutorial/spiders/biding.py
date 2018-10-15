@@ -2,6 +2,7 @@ import scrapy
 from selenium import webdriver
 import time
 import data_washing
+import re
 
 
 option = webdriver.ChromeOptions()
@@ -59,25 +60,21 @@ class Myspider(scrapy.Spider):
             'pro_releasetime': proreleasetime_list[p]})
 
     def parse_detail(self,response):
-        '''
-        判断是否是表格型数据
-        '''
+        #define search keys
+        sel_area_keys = ['建设地点', '供货地点', '供货安装地点'] #define area search keys
+        sel_period_keys = ['工期','检测服务期','设计服务期','计划工期','监理服务期'] #define period search keys
+
+
         is_table = response.xpath('//table[@id="tblInfo"]//table/tbody/tr').extract()
-        if len(is_table) > 0:
-            '''
-            get tr generate a list
-            '''
+        if len(is_table) > 0:#is table data!!!
+            #get tr generate a list
             tr_name_list = []
             for i in range(len(is_table)):
                 i+=1
                 table_tr = response.xpath(
                     '//table[@id="tblInfo"]//table/tbody/tr[%s]//td[1]//span/text()' % str(i)).extract()
                 tr_name_list += [''.join(table_tr)]
-
-            #get pro_area
-            sel_area_keys = ['建设地点', '供货地点', '供货安装地点'] #define area search keys
-            sel_period_keys = ['工期','检测服务期','设计服务期','计划工期','监理服务期'] #define period search keys
-
+            #get the value by select keys
             def sel_listname(l):
                 for sel in l:
                     try:
@@ -91,14 +88,25 @@ class Myspider(scrapy.Spider):
                                 subscript_pro_area)).extract()
                         break
                 return return_value
-
+            #combine the value to one value
             pro_area_value = [''.join(sel_listname(sel_area_keys))]
             pro_period_value = [''.join(sel_listname(sel_period_keys))]
 
         else:
-            pro_area_value = "this data is not table data!!"
-            pro_period_value = "this data is not table data!!"
-
+            nottable_data = response.xpath('//table[@id="tblInfo"]//tr[3]//span/text()').extract() #not table all data
+            #get list subscript with keys
+            def sel_subsptBykey(l1):
+                for ele in l1:
+                    re_keys = re.compile(r'.*%s.*'%str(ele))
+                    match_list = [element for element in nottable_data if re_keys.match(element) != None]
+                    if match_list == None:
+                        return_value = "has no this item!"
+                    else:
+                        return_value = match_list
+                        break
+                return return_value
+            pro_area_value = [''.join(sel_subsptBykey(sel_area_keys))]
+            pro_period_value = [''.join(sel_subsptBykey(sel_period_keys))]
 
 
 
