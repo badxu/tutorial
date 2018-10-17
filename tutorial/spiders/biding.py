@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 import data_washing
 import re
+from items import TutorialItem
 
 
 option = webdriver.ChromeOptions()
@@ -25,7 +26,7 @@ class Myspider(scrapy.Spider):
 
         driver.get(response.url)
 
-        for i in range(1):
+        for i in range(2):
             '''
             get four items from project list
             pro_name/pro_number/pro_releasetime/pro_detailurl
@@ -81,6 +82,7 @@ class Myspider(scrapy.Spider):
             'pro_releasetime': proreleasetime_list[p]})
 
     def parse_detail(self,response):
+        item = TutorialItem()
         #define search keys
         sel_area_keys = ['建设地点', '供货地点', '供货安装地点'] #define area search keys
         sel_period_keys = ['工期','检测服务期','设计服务期','计划工期','监理服务期','勘察服务期','供货期'] #define period search keys
@@ -89,6 +91,7 @@ class Myspider(scrapy.Spider):
 
         is_table = response.xpath('//table[@id="tblInfo"]//table/tbody/tr').extract()
         if len(is_table) > 0:#is table data!!!
+            data_type = 1    #define data type 1: table  2: not table
             #get tr generate a list
             tr_name_list = []
             for i in range(len(is_table)):
@@ -117,6 +120,8 @@ class Myspider(scrapy.Spider):
             pro_blockprice_value = [''.join(sel_listname(sel_blockprice_keys))]
 
         else:
+            data_type = 2
+            ##Have a danger is tag u  to  express numric price!!!!
             nottable_data = response.xpath('//table[@id="tblInfo"]//tr[3]//span/text()').extract() #not table all data
             #get list subscript with keys（fuzzy search use re）
             def sel_subsptBykey(l1):
@@ -136,8 +141,15 @@ class Myspider(scrapy.Spider):
             pro_blockprice_value = [''.join(sel_subsptBykey(sel_blockprice_keys))]
 
 
+        # item['pro_name'] = response.meta['pro_name']
+        # item['pro_number'] = response.meta['pro_number']
+        # item['pro_releasetime'] = response.meta['pro_releasetime']
+        # item['pro_area'] = pro_area_value
+        # item['pro_period'] = pro_period_value
+        # item['pro_blockprice'] = pro_blockprice_value
 
         yield {
+            'data_type': data_type,
             'pro_name': response.meta['pro_name'],
             'pro_number': response.meta['pro_number'],
             'pro_releasetime': response.meta['pro_releasetime'],

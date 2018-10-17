@@ -2,7 +2,7 @@
 import re
 
 
-re_prourl = re.compile(r'.*\/maszbw/infodetail/\?.*')#match project detail url
+re_prourl = re.compile(r'.*categoryNum=\d{12}')#match project detail url
 re_pronum = re.compile(r'\w{3}\-\d{2}\-\d{4}\-\d{4}')#match project number
 re_proretime = re.compile(r'\d{4}\-\d{2}\-\d{2}')#match project release time
 
