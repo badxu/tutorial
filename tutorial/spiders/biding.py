@@ -14,11 +14,28 @@ driver = webdriver.Chrome(chrome_options=option)
 class Myspider(scrapy.Spider):
     name = "biding"
     start_urls = [
-        'http://zbcg.mas.gov.cn/maszbw/jygg/028001/028001001/028001001001/MoreInfo.aspx?CategoryNum=028001001001'
+        'http://zbcg.mas.gov.cn/maszbw/jygg/028001/028001001/028001001001/MoreInfo.aspx?CategoryNum=028001001001',
+        'http://zbcg.mas.gov.cn/maszbw/jygg/028001/028001001/028001001002/MoreInfo.aspx?CategoryNum=028001001002',
+        'http://zbcg.mas.gov.cn/maszbw/jygg/028001/028001001/028001001003/MoreInfo.aspx?CategoryNum=028001001003',
+        'http://zbcg.mas.gov.cn/maszbw/jygg/028001/028001001/028001001004/MoreInfo.aspx?CategoryNum=028001001004'
     ]
 
 
     def parse(self, response):
+        if response.url == self.start_urls[0]:
+            pro_type = 'bid'
+            pro_address = 'city center'
+        elif response.url == self.start_urls[1]:
+            pro_type = 'bid'
+            pro_address = 'hanshan'
+        elif response.url == self.start_urls[2]:
+            pro_type = 'bid'
+            pro_address = 'hexian'
+        elif response.url == self.start_urls[3]:
+            pro_type = 'bid'
+            pro_address = 'dangtu'
+
+
         url_list = [] #define detail url list
         proname_list = [] #define project name
         pronumber_list = [] #define pronumber list
@@ -26,7 +43,7 @@ class Myspider(scrapy.Spider):
 
         driver.get(response.url)
 
-        for i in range(2):
+        for i in range(1):
             '''
             get four items from project list
             pro_name/pro_number/pro_releasetime/pro_detailurl
@@ -77,6 +94,8 @@ class Myspider(scrapy.Spider):
         for url in url_list:
             p = url_list.index(url)
             yield scrapy.Request(url=url,callback=self.parse_detail,meta={
+            'pro_type': pro_type,
+            'pro_address': pro_address,
             'pro_name':  proname_list[p],
             'pro_number': pronumber_list[p],
             'pro_releasetime': proreleasetime_list[p]})
@@ -141,6 +160,27 @@ class Myspider(scrapy.Spider):
             pro_blockprice_value = [''.join(sel_subsptBykey(sel_blockprice_keys))]
 
 
+        def get_blockprice_num(l_bp):
+            re_delblank = re.compile(r'\s+')
+            re_getnum = re.compile(r'\d+\s?[.]?\d?\d?')
+            re_getw = re.compile(r'万')
+            re_gety = re.compile(r'亿')
+            unit_w = re_getw.findall(l_bp[0])
+            unit_y = re_gety.findall(l_bp[0])
+            price = re_getnum.findall(l_bp[0])
+            for i in range(len(price)):
+                price_f = float(re.sub(re_delblank, '', price[i]))
+                if unit_w:
+                    res = price_f * 10000
+                    price[i] = str(res)
+                elif unit_y:
+                    res = price_f * 100000000
+                    price[i] = str(res)
+                else:
+                    res = price_f
+            return price
+
+
         # item['pro_name'] = response.meta['pro_name']
         # item['pro_number'] = response.meta['pro_number']
         # item['pro_releasetime'] = response.meta['pro_releasetime']
@@ -149,12 +189,15 @@ class Myspider(scrapy.Spider):
         # item['pro_blockprice'] = pro_blockprice_value
 
         yield {
+            'pro_type': response.meta['pro_type'],
+            'pro_address': response.meta['pro_address'],
             'data_type': data_type,
             'pro_name': response.meta['pro_name'],
             'pro_number': response.meta['pro_number'],
             'pro_releasetime': response.meta['pro_releasetime'],
             'pro_area': pro_area_value,
             'pro_period': pro_period_value,
-            'pro_blockprice': pro_blockprice_value
+            'pro_blockprice': pro_blockprice_value,
+            'pro_blockprice_num': get_blockprice_num(pro_blockprice_value)
 
         }

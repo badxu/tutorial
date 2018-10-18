@@ -1068,7 +1068,32 @@ chrome driver  测试
 
 #########################
 import re
-re_cp = re.compile(r'\d+[.]?\d?\d?')
-block_price = ["2666666323.36万元"]
-res = re_cp.findall(str(block_price[0]))
-print(res)
+re_delblank = re.compile(r'\s+')
+re_getnum = re.compile(r'\d+\s?[.]?\d?\d?')
+re_getw = re.compile(r'万')
+re_gety = re.compile(r'亿')
+block_price = ['标段一：  5393.68 元； 标段二：  52925 .25    亿元； ']
+unit_w = re_getw.findall(block_price[0])
+unit_y = re_gety.findall(block_price[0])
+price = re_getnum.findall(block_price[0])
+print(price)
+
+for i in range(len(price)):
+ price_f = float(re.sub(re_delblank,'',price[i]))
+ if unit_w:
+  res = price_f * 10000
+  price[i] = str(res)
+ elif unit_y:
+  res = price_f * 100000000
+  price[i] = str(res)
+ else:
+  res = price_f
+
+print(price)
+
+
+
+
+
+
+

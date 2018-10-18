@@ -11,11 +11,11 @@ import scrapy
 class TutorialItem(scrapy.Item):
     # Construction biding item setting
     pro_type = scrapy.Field()#类型  招标/中标
-    pro_area = scrapy.Field()#区域
+    pro_address = scrapy.Field()#区域
     pro_number = scrapy.Field()##项目编号
     pro_name  = scrapy.Field()#项目名称
     pro_releasetime = scrapy.Field()#发布时间
-    pro_address  = scrapy.Field()#建设地址
+    pro_area  = scrapy.Field()#建设地址
     pro_period = scrapy.Field()#建设周期
     pro_range = scrapy.Field()#招标范围
     pro_section = scrapy.Field()#标段划分
