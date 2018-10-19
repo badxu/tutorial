@@ -43,7 +43,7 @@ class Myspider(scrapy.Spider):
 
         driver.get(response.url)
 
-        for i in range(1):
+        for i in range(3):
             '''
             get four items from project list
             pro_name/pro_number/pro_releasetime/pro_detailurl
@@ -98,7 +98,8 @@ class Myspider(scrapy.Spider):
             'pro_address': pro_address,
             'pro_name':  proname_list[p],
             'pro_number': pronumber_list[p],
-            'pro_releasetime': proreleasetime_list[p]})
+            'pro_releasetime': proreleasetime_list[p],
+            'pro_url': url})
 
     def parse_detail(self,response):
         item = TutorialItem()
@@ -180,24 +181,28 @@ class Myspider(scrapy.Spider):
                     res = price_f
             return price
 
-
-        # item['pro_name'] = response.meta['pro_name']
-        # item['pro_number'] = response.meta['pro_number']
-        # item['pro_releasetime'] = response.meta['pro_releasetime']
+        item['pro_type'] = response.meta['pro_type']
+        item['pro_address'] = response.meta['pro_address']
+        item['data_type'] = data_type
+        item['pro_name'] = response.meta['pro_name']
+        item['pro_number'] = response.meta['pro_number']
+        item['pro_releasetime'] = response.meta['pro_releasetime']
         # item['pro_area'] = pro_area_value
         # item['pro_period'] = pro_period_value
-        # item['pro_blockprice'] = pro_blockprice_value
-
-        yield {
-            'pro_type': response.meta['pro_type'],
-            'pro_address': response.meta['pro_address'],
-            'data_type': data_type,
-            'pro_name': response.meta['pro_name'],
-            'pro_number': response.meta['pro_number'],
-            'pro_releasetime': response.meta['pro_releasetime'],
-            'pro_area': pro_area_value,
-            'pro_period': pro_period_value,
-            'pro_blockprice': pro_blockprice_value,
-            'pro_blockprice_num': get_blockprice_num(pro_blockprice_value)
-
-        }
+        item['pro_blockprice'] = pro_blockprice_value
+        item['pro_blockprice_num'] = '/'.join(get_blockprice_num(pro_blockprice_value))
+        item['pro_url'] = response.meta['pro_url']
+        yield item
+        # yield {
+        #     'pro_type': response.meta['pro_type'],
+        #     'pro_address': response.meta['pro_address'],
+        #     'data_type': data_type,
+        #     'pro_name': response.meta['pro_name'],
+        #     'pro_number': response.meta['pro_number'],
+        #     'pro_releasetime': response.meta['pro_releasetime'],
+        #     'pro_area': pro_area_value,
+        #     'pro_period': pro_period_value,
+        #     'pro_blockprice': pro_blockprice_value,
+        #     'pro_blockprice_num': get_blockprice_num(pro_blockprice_value)
+        #
+        # }

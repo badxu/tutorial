@@ -19,11 +19,12 @@ NEWSPIDER_MODULE = 'tutorial.spiders'
 
 
 #DEFINE SQL CONNECT
-MYSQL_HOSTS = '192.168.40.16'
+MYSQL_HOSTS = '192.168.40.14'
 MYSQL_USER = 'root'
-MYSQL_PASSWORD = 'wzh12346578'
-MYSQL_PORT = '3389'
+MYSQL_PASSWORD = 'badxu2888270'
+MYSQL_PORT = '3306'
 MYSQL_DB = 'bid_crawl'
+CHARSET = 'utf8'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
@@ -75,7 +76,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'tutorial.mysqlpipelines.pipelines.TutorialPipeline': 1,
+   'tutorial.pipelines.TutorialPipeline': 100,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
