@@ -26,4 +26,6 @@ class TutorialItem(scrapy.Item):
     pro_applytime = scrapy.Field()#报名时间
     pro_fileapplytime = scrapy.Field()#投标文件截止时间
     pro_url = scrapy.Field()
+
+    pro_section_num = scrapy.Field() # 中标 标段编号
     pass
