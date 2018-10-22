@@ -1118,6 +1118,9 @@ class Myspider(scrapy.Spider):
         driver.switch_to.default_content()  # out iframe
 
 
+
+
+
         yield {
             'text_1': text_1,
             'text_2': text_2
