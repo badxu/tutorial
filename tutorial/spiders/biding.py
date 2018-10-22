@@ -106,7 +106,8 @@ class Myspider(scrapy.Spider):
         #define search keys
         sel_area_keys = ['建设地点', '供货地点', '供货安装地点'] #define area search keys
         sel_period_keys = ['工期','检测服务期','设计服务期','计划工期','监理服务期','勘察服务期','供货期'] #define period search keys
-        sel_blockprice_keys = ['最高投标限价（人民币）','招标控制价','最高投标限价','施工最高投标限价（人民币）']
+        sel_blockprice_keys = ['明标价','项目投资','招标预算价','施工最高投标限价（人民币）','项目控制价',
+                               '最高投标限价(人民币)','招标控制价','最高投标限价','施工最高投标限价（人民币）']
 
 
         is_table = response.xpath('//table[@id="tblInfo"]//table/tbody/tr').extract()
