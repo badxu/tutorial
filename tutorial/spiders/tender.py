@@ -7,7 +7,7 @@ import re
 from items import TutorialItem
 
 option = webdriver.ChromeOptions()
-# option.add_argument('headless')  # the next page click is invalid when headless is true by macos
+option.add_argument('headless')  # the next page click is invalid when headless is true by macos
 driver = webdriver.Chrome(chrome_options=option)
 
 class Myspider(scrapy.Spider):
