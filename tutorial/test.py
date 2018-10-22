@@ -1117,10 +1117,6 @@ class Myspider(scrapy.Spider):
         text_1 = sel[0].get_attribute("textContent")
         driver.switch_to.default_content()  # out iframe
 
-
-
-
-
         yield {
             'text_1': text_1,
             'text_2': text_2

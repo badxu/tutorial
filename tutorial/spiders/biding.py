@@ -42,7 +42,7 @@ class Myspider(scrapy.Spider):
 
         driver.get(response.url)
 
-        for i in range(3):
+        for i in range(2):
             '''
             get four items from project list
             pro_name/pro_number/pro_releasetime/pro_detailurl
@@ -88,8 +88,8 @@ class Myspider(scrapy.Spider):
                 print("####the last page####")
                 break
 
-        with open('url_list.txt',mode = 'w') as f:
-            f.write(repr(url_list))#'repr()' return str to write txt
+        # with open('url_list.txt',mode = 'w') as f:
+        #     f.write(repr(url_list))#'repr()' return str to write txt
         for url in url_list:
             p = url_list.index(url)
             yield scrapy.Request(url=url,callback=self.parse_detail,meta={
@@ -106,7 +106,6 @@ class Myspider(scrapy.Spider):
         #define search keys
         sel_area_keys = ['建设地点', '供货地点', '供货安装地点'] #define area search keys
         sel_period_keys = ['工期','检测服务期','设计服务期','计划工期','监理服务期','勘察服务期','供货期'] #define period search keys
-
         sel_blockprice_keys = ['明标价','最高投标限价(人民币)','项目投资','最高投标限价（人民币）','招标控制价',
                                '招标预算价','最高投标限价','施工最高投标限价（人民币）','项目控制价']
 

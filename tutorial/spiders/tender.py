@@ -36,10 +36,7 @@ class Myspider(scrapy.Spider):
         proname_list = [] #define project name
         proreleasetime_list = []# define release time list
 
-
-
-         
-
+        driver.get(response.url)
         for i in range(2):
             '''
             get four items from project list
