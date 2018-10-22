@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b39370b-c89e-4d08-826c-931bf09cc2a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ xxx.jl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrypoint.py" beforeDir="false" afterPath="$PROJECT_DIR$/entrypoint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tutorial/spiders/biding.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/spiders/biding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/url_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/url_list.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,48 +18,50 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/tutorial$tender.coverage" NAME="tender Coverage Results" MODIFIED="1540088720835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tutorial/spiders" />
     <SUITE FILE_PATH="coverage/tutorial$biding.coverage" NAME="biding Coverage Results" MODIFIED="1539345155259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tutorial/spiders" />
-    <SUITE FILE_PATH="coverage/tutorial$entrypoint.coverage" NAME="entrypoint Coverage Results" MODIFIED="1539511110124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tutorial$entrypoint.coverage" NAME="entrypoint Coverage Results" MODIFIED="1540120568714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-836801120">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="jl" value="21" />
+          <entry key="jl" value="24" />
           <entry key="log" value="1" />
-          <entry key="py" value="29" />
-          <entry key="txt" value="3" />
+          <entry key="py" value="42" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Julia" value="11" />
-          <entry key="PLAIN_TEXT" value="14" />
-          <entry key="Python" value="29" />
+          <entry key="Julia" value="14" />
+          <entry key="PLAIN_TEXT" value="15" />
+          <entry key="Python" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3437" />
+          <entry key="py" value="4726" />
           <entry key="txt" value="110" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="110" />
-          <entry key="Python" value="3437" />
+          <entry key="Python" value="4726" />
         </counts>
       </usages-collector>
     </session>
@@ -62,51 +69,54 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/spiders/biding.py">
+        <entry file="file://$PROJECT_DIR$/ yyy.jl">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tutorial/spiders/tender.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="95" column="70" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="70" />
+            <state relative-caret-position="511">
+              <caret line="38" column="32" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="32" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1539511110100" expanded="true" signature="2326:2335" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ xxx.jl">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/items.py">
+        <entry file="file://$PROJECT_DIR$/tutorial/spiders/entpqulification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///anaconda3/lib/python3.6/site-packages/scrapy/http/response/text.py">
+        <entry file="file://$PROJECT_DIR$/tutorial/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
-              <caret line="118" selection-start-line="118" selection-end-line="118" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///anaconda3/lib/python3.6/site-packages/parsel/selector.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2074">
-              <caret line="128" selection-start-line="128" selection-end-line="128" />
+            <state relative-caret-position="433">
+              <caret line="1117" column="56" selection-start-line="1117" selection-start-column="56" selection-end-line="1117" selection-end-column="56" />
+              <folding>
+                <element signature="e#20664#20677#0" expanded="true" />
+                <marker date="1540120801202" expanded="false" signature="807:4220" ph="..." />
+                <marker date="1540120801202" expanded="false" signature="4476:11711" ph="..." />
+                <marker date="1540120801202" expanded="false" signature="12138:19372" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -121,11 +131,18 @@
       <list>
         <option value="$PROJECT_DIR$/url_list.txt" />
         <option value="$PROJECT_DIR$/tutorial/data_washing.py" />
-        <option value="$PROJECT_DIR$/tutorial/settings.py" />
-        <option value="$PROJECT_DIR$/tutorial/items.py" />
-        <option value="$PROJECT_DIR$/entrypoint.py" />
         <option value="$PROJECT_DIR$/ xxx.jl" />
+        <option value="$PROJECT_DIR$/tutorial/settings.py" />
+        <option value="/anaconda3/lib/python3.6/site-packages/pymysql/connections.py" />
         <option value="$PROJECT_DIR$/tutorial/spiders/biding.py" />
+        <option value="$PROJECT_DIR$/tutorial/items.py" />
+        <option value="$PROJECT_DIR$/tutorial/pipelines.py" />
+        <option value="$PROJECT_DIR$/ zzz.jl" />
+        <option value="$PROJECT_DIR$/tutorial/spiders/tender.py" />
+        <option value="$PROJECT_DIR$/entrypoint.py" />
+        <option value="$PROJECT_DIR$/ yyy.jl" />
+        <option value="$PROJECT_DIR$/tutorial/spiders/entpqulification.py" />
+        <option value="$PROJECT_DIR$/tutorial/test.py" />
       </list>
     </option>
   </component>
@@ -135,10 +152,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
-    <option name="height" value="825" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -184,7 +200,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -243,13 +259,37 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tender" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="tutorial" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tutorial/spiders" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tutorial/spiders/tender.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.entrypoint" />
       <item itemvalue="Python.biding" />
+      <item itemvalue="Python.tender" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.entrypoint" />
+        <item itemvalue="Python.tender" />
         <item itemvalue="Python.biding" />
       </list>
     </recent_temporary>
@@ -268,11 +308,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="1" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15808298" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.1416309" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -282,8 +321,8 @@
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.34515688" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.44747612" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.22771084" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.15421687" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
@@ -293,29 +332,6 @@
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15164521" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="4" />
-      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.37349397" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.37951806" />
-      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="12" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="SciView" order="2" />
-      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -327,20 +343,6 @@
     <entry file="file://$PROJECT_DIR$/tutorial/ghostdriver.log">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/url_list.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tutorial/middlewares.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -348,24 +350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrypoint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="48" lean-forward="true" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/data_washing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1539262113702" expanded="true" signature="269:274" ph="..." />
-            <marker date="1539262113702" expanded="true" signature="397:402" ph="..." />
-            <marker date="1539262113702" expanded="true" signature="515:520" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -467,26 +451,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ xxx.jl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///anaconda3/lib/python3.6/site-packages/pymysql/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9571">
+          <caret line="587" column="50" selection-start-line="587" selection-start-column="50" selection-end-line="587" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/url_list.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/data_washing.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <folding>
+            <element signature="e#193#207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tutorial/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state relative-caret-position="493">
+          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrypoint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ zzz.jl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" selection-end-line="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tutorial/spiders/biding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="95" column="70" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="70" />
+        <state relative-caret-position="3315">
+          <caret line="195" column="18" selection-start-line="195" selection-start-column="18" selection-end-line="195" selection-end-column="18" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1539511110100" expanded="true" signature="2326:2335" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ xxx.jl">
+    <entry file="file://$PROJECT_DIR$/ yyy.jl">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="1117" column="56" selection-start-line="1117" selection-start-column="56" selection-end-line="1117" selection-end-column="56" />
+          <folding>
+            <element signature="e#20664#20677#0" expanded="true" />
+            <marker date="1540120801202" expanded="false" signature="807:4220" ph="..." />
+            <marker date="1540120801202" expanded="false" signature="4476:11711" ph="..." />
+            <marker date="1540120801202" expanded="false" signature="12138:19372" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/spiders/entpqulification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/spiders/tender.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="38" column="32" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

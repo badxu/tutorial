@@ -24,7 +24,6 @@ chrome driver  测试
 # #     b.quit()
 # # if __name__=='__main__':
 # #     main()
-# ##################################################
 ####################################################
 # import re
 # url = re.compile(r'\/maszbw/infodetail/\?.*')
@@ -1066,7 +1065,8 @@ chrome driver  测试
 #
 # print(return_value)
 
-#########################
+#########test washing price ################
+'''
 import re
 re_delblank = re.compile(r'\s+')
 re_getnum = re.compile(r'\d+\s?[.]?\d?\d?')
@@ -1090,6 +1090,41 @@ for i in range(len(price)):
   res = price_f
 
 print(price)
+'''
+####  test selenium  location  in iframe ######
+import scrapy
+from selenium import webdriver
+
+option = webdriver.ChromeOptions()
+option.add_argument('headless')  # the next page click is invalid when headless is true by macos
+driver = webdriver.Chrome(chrome_options=option)
+
+
+class Myspider(scrapy.Spider):
+    name = "entpq"
+    start_urls = [
+        'http://app.ahgcjs.com.cn:3318/pub/query/comp/showCompInfo/130901181900705825'
+    ]
+
+    def parse(self, response):
+        driver.get(response.url)
+
+        # driver.switch_to.default_content()
+        sell = driver.find_elements_by_xpath('//title')[0]
+        text_2 = sell.get_attribute("textContent")
+        driver.switch_to.frame("bodyFrame")  # insert iframe
+        sel = driver.find_elements_by_xpath('//title')
+        text_1 = sel[0].get_attribute("textContent")
+        driver.switch_to.default_content()  # out iframe
+
+
+
+
+
+        yield {
+            'text_1': text_1,
+            'text_2': text_2
+        }
 
 
 
