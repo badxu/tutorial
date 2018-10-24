@@ -17,5 +17,5 @@ def proretime_filter(li_2):
     proretime_list = [re_proretime.findall(elem) for elem in li_2]
     return proretime_list
 def entqlurl_filter(li_entqlurl):
-    entqlurl_list = [re_entqlurl.findall(elem) for elem in li_entqlurl]
+    entqlurl_list = [element for element in li_entqlurl if re_entqlurl.match(element)!= None]
     return entqlurl_list

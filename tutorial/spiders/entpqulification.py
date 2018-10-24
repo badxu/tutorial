@@ -6,7 +6,7 @@ import time
 from scrapy_splash import SplashRequest
 
 option = webdriver.ChromeOptions()
-option.add_argument('headless')  # the next page click is invalid when headless is true by macos
+# option.add_argument('headless')  # the next page click is invalid when headless is true by macos
 driver = webdriver.Chrome(chrome_options=option)
 
 
@@ -39,13 +39,14 @@ class Myspider(scrapy.Spider):
 
         for url in dturl_list:
             # yield SplashRequest(url,self.parse_detail,meta={'pro_url': url})
-            yield scrapy.Request(url=url[0], callback=self.parse_detail, meta={'pro_url': url[0]})
+            yield scrapy.Request(url=url, callback=self.parse_detail, meta={'pro_url': url})
 
     def parse_detail(self, response):
         driver.get(response.url)
         driver.switch_to.default_content()
-        ent_name_raw = driver.find_elements_by_xpath('//div[@class="inquiry_listcont"]/table//tr[2]/td[2]/text()')
-        ent_name = re.sub(r'\n?\t+\s+',"",ent_name_raw)
+        ent_name_raw = driver.find_elements_by_xpath('//div[@class="inquiry_listcont"]/table//tr[2]/td[2]')
+        ent_name_list = [ele.get_attribute("textContent") for ele in ent_name_raw]
+        ent_name = re.sub(r'\n?\t+\s+',"",ent_name_list[0])
 
         driver.switch_to.frame("bodyFrame")  # insert iframe
 
