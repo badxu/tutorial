@@ -1091,7 +1091,10 @@ for i in range(len(price)):
 
 print(price)
 '''
-####  test selenium  location  in iframe ######
+####  test selenium  location  in iframe #####
+'''
+
+
 import scrapy
 from selenium import webdriver
 
@@ -1121,8 +1124,24 @@ class Myspider(scrapy.Spider):
             'text_1': text_1,
             'text_2': text_2
         }
+'''
 
 
+################test apply qulification area#################
+
+import re
+re_apparea = re.compile(r'\w{3}-\w{3,4}-\w{3,4}|\w{3}-\w{3,4}')
+app_area = ['\r\n\t\t\t\t\t    \t【91340122583018586X】\r\n\t\t\t\t\t    \t安徽骏雄建筑工程有限公司\r\n\t\t\t\t\t    ',
+ '\r\n\t\t\t\t\t    \t安徽省-合肥市\r\n\t\t\t\t\t    ',
+ '2011-09-09',
+ '私营经济',
+ '张飞雄',
+ '张飞雄',
+ '肥东县石塘镇石塘社区银桥街58号',]
+unit_w_w = [re.sub(r'\r?\n?\t+\s+',"",ele) for ele in app_area]
+unit_w = [element for element in unit_w_w if re_apparea.match(element)!= None]
+
+print(unit_w)
 
 
 

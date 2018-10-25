@@ -142,19 +142,28 @@ class Myspider(scrapy.Spider):
             pro_firstwinning_value = 'waiting get ......'
             pro_tenderprice_value = 'waiting get ......'
 
+        item['pro_type'] = response.meta['pro_type']
+        item['pro_address'] = response.meta['pro_address']
+        item['data_type'] = data_type
+        item['pro_name'] = response.meta['pro_name']
+        item['pro_number'] = pro_pronumber_value,
+        item['pro_releasetime'] = response.meta['pro_releasetime']
+        item['pro_url'] = response.meta['pro_url']
+        item['pro_section'] = pro_section_value
+        item['pro_firstwinning'] = pro_firstwinning_value
+        item['pro_tenderprice'] = pro_tenderprice_value
+        yield item
 
-
-
-        yield {
-            'pro_type': response.meta['pro_type'],
-            'pro_address': response.meta['pro_address'],
-            'data_type': data_type,
-            'pro_name': response.meta['pro_name'],
-            'pro_number': pro_pronumber_value,
-            'pro_releasetime': response.meta['pro_releasetime'],
-            'pro_url': response.meta['pro_url'],
-            'pro_section': pro_section_value,
-            'pro_firstwinning': pro_firstwinning_value,
-            'pro_tenderprice': pro_tenderprice_value
-
-        }
+        # yield {
+        #     'pro_type': response.meta['pro_type'],
+        #     'pro_address': response.meta['pro_address'],
+        #     'data_type': data_type,
+        #     'pro_name': response.meta['pro_name'],
+        #     'pro_number': pro_pronumber_value,
+        #     'pro_releasetime': response.meta['pro_releasetime'],
+        #     'pro_url': response.meta['pro_url'],
+        #     'pro_section': pro_section_value,
+        #     'pro_firstwinning': pro_firstwinning_value,
+        #     'pro_tenderprice': pro_tenderprice_value
+        #
+        # }

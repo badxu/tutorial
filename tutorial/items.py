@@ -26,6 +26,19 @@ class TutorialItem(scrapy.Item):
     pro_applytime = scrapy.Field()#报名时间
     pro_fileapplytime = scrapy.Field()#投标文件截止时间
     pro_url = scrapy.Field()
-
-    pro_section_num = scrapy.Field() # 中标 标段编号
-    pass
+    # Construction tender item setting
+    pro_type = scrapy.Field()
+    pro_address = scrapy.Field()
+    data_type = scrapy.Field()
+    pro_name = scrapy.Field()
+    pro_number = scrapy.Field()
+    pro_releasetime = scrapy.Field()
+    pro_url = scrapy.Field()
+    pro_section = scrapy.Field()
+    pro_firstwinning = scrapy.Field()
+    pro_tenderprice = scrapy.Field()
+    # Construction entpq item setting
+    ent_name = scrapy.Field()
+    a_area = scrapy.Field()
+    q_name = scrapy.Field()
+    eq_url = scrapy.Field()

@@ -4,9 +4,10 @@ import re
 import data_washing
 import time
 from scrapy_splash import SplashRequest
+from items import TutorialItem
 
 option = webdriver.ChromeOptions()
-# option.add_argument('headless')  # the next page click is invalid when headless is true by macos
+option.add_argument('headless')  # the next page click is invalid when headless is true by macos
 driver = webdriver.Chrome(chrome_options=option)
 
 
@@ -42,11 +43,22 @@ class Myspider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse_detail, meta={'pro_url': url})
 
     def parse_detail(self, response):
+        item = TutorialItem()
         driver.get(response.url)
+
         driver.switch_to.default_content()
         ent_name_raw = driver.find_elements_by_xpath('//div[@class="inquiry_listcont"]/table//tr[2]/td[2]')
         ent_name_list = [ele.get_attribute("textContent") for ele in ent_name_raw]
         ent_name = re.sub(r'\n?\t+\s+',"",ent_name_list[0])
+
+        apply_area_raw = driver.find_elements_by_xpath('//div[@class="inquiry_listcont"]/table//tr/td[2]')
+        apply_area_list = [ele.get_attribute("textContent") for ele in apply_area_raw]
+        apply_area_list_wash = [re.sub(r'\r?\n?\t+\s+',"",ele) for ele in apply_area_list]
+        apply_area = data_washing.applyarea_filter(apply_area_list_wash)
+        if apply_area:
+            apply_area_value = apply_area
+        else:
+            apply_area_value = 'error search!!'
 
         driver.switch_to.frame("bodyFrame")  # insert iframe
 
@@ -62,12 +74,20 @@ class Myspider(scrapy.Spider):
 
         driver.switch_to.default_content()  # out iframe
 
-        yield {
-            'ent_name': ent_name,
-            'q_name': q_name,
-            'eq_url': response.meta['pro_url']
-        }
+        item['ent_name'] = ent_name
+        item['a_area'] = apply_area_value
+        item['q_name'] = ''.join(q_name)
+        item['eq_url'] = response.meta['pro_url']
+        yield item
 
+        #
+        # yield {
+        #     'ent_name': ent_name,
+        #     'a_area': apply_area_value,
+        #     'q_name': q_name,
+        #     'eq_url': response.meta['pro_url']
+        # }
+        #
 
 
 
